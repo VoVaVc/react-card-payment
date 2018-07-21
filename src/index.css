@@ -1,0 +1,217 @@
+.cardWrap
+  {
+    width: 420px;
+    height: 280px;
+    position: relative;
+    padding: 15px 35px;
+    background: #F9F9F9;
+    border-radius: 34px;
+    border: 1px solid #DBDBDB;
+    text-align: left;
+  }
+
+  .cardWrap .info
+  {
+    overflow: hidden;
+  }
+
+  .cardWrap .row {
+    position: relative;
+    height: 40px;
+    margin: 9px 0;
+  }
+
+  .cardWrap form
+  {
+    margin: 5px 0;
+  }
+
+  .cardWrap label {
+    position: absolute;
+    color: #9B9B9B;
+    font-size: 10px;
+    top: 6px;
+    left: 24px;
+    z-index: 1;
+  }
+
+  .cardWrap input {
+    padding: 14px 22px 0;
+    height: 40px;
+    border: 1px solid #DBDBDB;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .cardWrap .part {
+    width: 80px;
+    display: inline-block;
+    position: relative;
+  }
+
+  input:not([type=radio]):not([type=checkbox]) {
+    border-radius: 20px;
+    font-size: 14px;
+    outline: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+  }
+
+  .cardWrap .sepLine {
+    width: 18px;
+  }
+
+  .cardWrap .right {
+    float: right;
+  }
+
+  .cardWrap .whatIsIt
+  {
+    background: #2679FF;
+    border-radius: 100px;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    bottom: -4px;
+    right: -7px;
+    color: #fff;
+    line-height: 25px;
+    font-size: 14px;
+  }
+
+  .cardWrap .submit
+  {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    border-bottom-left-radius: 34px;
+    border-bottom-right-radius: 34px;
+    text-align: center;
+
+    transition: .3s border linear, .3s background linear;
+  }
+
+  .cardWrap button {
+    border: 1px solid #fff;
+    background: 0 0;
+    box-shadow: none;
+    margin: 15px;
+    height: 32px;
+    width: 160px;
+    border-radius: 20px;
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+    cursor: not-allowed;
+
+    transition: .3s color linear, .3s background linear;
+  }
+
+  .cardWrap .info {
+    overflow: hidden;
+  }
+
+  .cardWrap .text {
+        color: #9B9B9B;
+    margin: 12px 0 0;
+    padding: 0 22px;
+    line-height: 22px;
+  }
+
+  .cardWrap .sum {
+    font-size: 32px;
+    float: right;
+    margin: -41px 0 0;
+  }
+
+  input::-webkit-inner-spin-button
+  {
+    display: none;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+      transition: background-color 5000s ease-in-out 0s;
+      background-color: #fff;
+  }
+
+  .cardWrap.valid .submit
+  {
+    background: transparent;
+    border-top: 1px solid #dbdbdb;
+  }
+
+  .cardWrap.valid button
+  {
+    color: #fff;
+    background: #6cc067;
+    font-weight: bold;
+    cursor: pointer;
+
+    color: #fff;
+    background: #6cc067;
+    font-weight: bold;
+    box-shadow: 1px 1px 0px 1px #437d3f;
+    border: 0;
+  }
+
+    .cardWrap.valid button:active
+    {
+      box-shadow: -1px -1px 0px 1px #437d3f;
+      top: 1px;
+      left: 1px;
+    }
+
+    .cardWrap input.invalid
+    {
+      border-color: #a500009c;
+    }
+
+    .bankLogo, .bankLogo img
+    {
+      height: 56px;
+    }
+
+    .brandLogo
+    {
+      height: 40px;
+      margin: 12px 0 0;
+    }
+
+    .dark input:not([type=radio]):not([type=checkbox])
+    {
+      background: transparent;
+      color: #fff;
+      border: none;
+    }
+
+      .dark input:-webkit-autofill,
+      .dark input:-webkit-autofill:hover,
+      .dark input:-webkit-autofill:focus,
+      .dark input:-webkit-autofill:active
+      {
+        -webkit-text-fill-color: #fff !important;
+      }
+
+      .dark label {
+        color: #ccc8c8
+      }
+
+      .dark input::-webkit-input-placeholder
+      {
+        color: #fff;
+      }
+
+      .valid .dark .submit
+      {
+        border-top: none;
+      }
+
+      .dark .brandLogo
+      {
+        margin: -28px 0 0;
+      }
