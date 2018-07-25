@@ -6,6 +6,8 @@
 
 ![DEMO](https://media.giphy.com/media/46zASYmXsfOUprZXcr/giphy.gif)
 
+[Vuejs version](https://www.npmjs.com/package/vue-card-payment)
+
 ## Installation
 
 ```bash
@@ -65,20 +67,6 @@ then, place this one in a place you want payment form to appear
     placeholderCardHolder: "JOHN DOE",
     placeholderCvv: "000"
   }} onSubmit={alert('it was submitted')}/>
-```
-
-
-### Browser
-
-```html
-<!-- Include after Vue -->
-<!-- Local files -->
-<link rel="stylesheet" href="vue-card-payment/dist/vue-card-payment.css"></link>
-<script src="vue-card-payment/dist/vue-card-payment.js"></script>
-
-<!-- From CDN -->
-<link rel="stylesheet" href="https://unpkg.com/vue-card-payment/dist/vue-card-payment.css"></link>
-<script src="https://unpkg.com/vue-card-payment"></script>
 ```
 
 ## Thanks

@@ -1,6 +1,6 @@
 {
   "name": "react-card-payment",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Awesome credit card payment form",
   "author": "Vladimir Pavlov <vovavc@gmail.com>",
   "keywords": [
@@ -10,6 +10,7 @@
     "Credit",
     "Payment",
     "Form",
+    "Checkout",
     "Credit card"
   ],
   "bugs": {
