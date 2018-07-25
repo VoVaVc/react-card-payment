@@ -5,6 +5,24 @@ import './index.css';
 import CardInfo from 'card-info';
 import * as CardValidator from 'card-validator';
 
+const defProps = {
+  labelCardNumber   : 'Card number',
+  labelCardHolder   : 'Cardholder name',
+  labelMonth        : 'Month',
+  labelYear         : 'Year',
+  labelButton       : 'pay',
+
+  placeholderCardNumber : '0000 0000 0000 0000',
+  placeholderMonth      : '00',
+  placeholderYear       : '00',
+  placeholderCvv        : '000',
+  placeholderCardHolder : 'JOHN DOE',
+
+  onSubmit(){
+    console.warn('<ReactCardPayment> -> there is no callback function for onSubmit, maybe, you forgot to provide it?');
+  }
+};
+
 // get all logos file from card-info plugin to use it further
 const LogosRaw = require.context('card-info/dist/', true, /\.png/);
 const LogosRawSvg = require.context('card-info/dist/', true, /\.svg/);
@@ -21,7 +39,7 @@ LogosRawSvg.keys().forEach(function(key){
   Logos[key] = base64;
 });
 
-export default class ReactCardPayment extends Component {
+class ReactCardPayment extends Component {
   constructor(props){
     super(props);
 
@@ -100,7 +118,8 @@ export default class ReactCardPayment extends Component {
         this.setYear(target.value);
         break;
       case 'cvc':
-        this.setCardState('cvv', target.value);
+        let val = target.value.replace(/\D/g,'');
+        this.setCardState('cvv', val);
         break;
       case 'ccname':
         this.setCardState('name', target.value.toUpperCase());
@@ -220,20 +239,20 @@ export default class ReactCardPayment extends Component {
             }
           </div>
           <div className="row">
-            <label>{this.props.labels.cardNumber}</label>
+            <label>{this.props.labelCardNumber}</label>
 
             <input type="phone" value={this.state.card.number}
               onInput={this.handleChange} placeholder-char="_"
-              placeholder={this.props.placeholders.cardNumber}
+              placeholder={this.props.placeholderCardNumber}
               name="cardnumber" autoComplete="cc-number" maxLength="23"
             />
           </div>
           <div className="row">
             <div className="part">
-              <label>{this.props.labels.month}</label>
+              <label>{this.props.labelMonth}</label>
               <input type="number" value={this.state.card.month}
                 onInput={this.handleChange}
-                onBlur={this.handleBlur} placeholder={this.props.placeholders.month}
+                onBlur={this.handleBlur} placeholder={this.props.placeholderMonth}
                 min="1" max="12" maxLength="2" name="cc-exp-month" autoComplete="cc-exp"
               />
             </div>
@@ -241,25 +260,25 @@ export default class ReactCardPayment extends Component {
               <span></span>
             </div>
             <div className="part">
-              <label>{this.props.labels.year}</label>
+              <label>{this.props.labelYear}</label>
               <input type="number" value={this.state.card.year}
                 onInput={this.handleChange} onBlur={this.handleBlur}
-                placeholder={this.props.placeholders.year}
+                placeholder={this.props.placeholderYear}
                 min="0" max="99" maxLength="2" name="cc-exp" autoComplete="cc-exp"
               />
             </div>
             <div className="part right">
               <label>{ 'CVV' }</label>
               <input type="password" value={this.state.card.cvv}
-                onInput={this.handleChange} placeholder={this.props.placeholders.cvv}
+                onInput={this.handleChange} placeholder={this.props.placeholderCvv}
                 name="cvc" maxLength="3" autoComplete="cc-cvc"
               />
             </div>
           </div>
           <div className="row">
-            <label>{this.props.labels.cardHolder}</label>
+            <label>{this.props.labelCardHolder}</label>
             <input type="text" value={this.state.card.name}
-              onInput={this.handleChange} placeholder={this.props.placeholders.cardHolder}
+              onInput={this.handleChange} placeholder={this.props.placeholderCardHolder}
               name="ccname" autoComplete="cc-name"
             />
             {
@@ -270,7 +289,7 @@ export default class ReactCardPayment extends Component {
             }
           </div>
           <div className="submit">
-            <button type="submit">{this.props.labels.button}</button>
+            <button type="submit">{this.props.labelButton}</button>
           </div>
         </form>
       </div>
@@ -278,27 +297,7 @@ export default class ReactCardPayment extends Component {
   }
 }
 
-ReactCardPayment.defaultProps = {
-  labels: {
-    cardNumber: 'Card number',
-    month: 'Month',
-    year: 'Year',
-    cardHolder: 'Cardholder name',
-    button: 'pay'
-  },
-
-  placeholders: {
-    cardNumber: '0000 0000 0000 0000',
-    month: '00',
-    year: '00',
-    cardHolder: 'JOHN DOE',
-    cvv: '000'
-  },
-
-  onSubmit(){
-    console.warn('<ReactCardPayment> -> there is no callback function for onSubmit, maybe you forgot to provide it?');
-  }
-};
+ReactCardPayment.defaultProps = defProps;
 
 ReactCardPayment.displayName = 'ReactCardPayment';
 

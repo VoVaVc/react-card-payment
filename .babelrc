@@ -4,12 +4,9 @@
     "react"
   ],
   "plugins": [
-    "syntax-dynamic-import",
-    [
-      "transform-react-remove-prop-types",
-      {
-        "mode": "wrap"
-      }
-    ]
-  ]
+    "inline-import-data-uri",
+    "transform-react-jsx",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ],
 }

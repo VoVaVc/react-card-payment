@@ -1,7 +1,2 @@
-docs/build/
-dist-es6/
-dist-modules/
+dist/
 node_modules/
-coverage/
-npm-debug.log
-.eslintcache

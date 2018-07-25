@@ -1,8 +1,8 @@
 {
   "name": "react-card-payment",
+  "version": "0.1.1",
   "description": "Awesome credit card payment form",
   "author": "Vladimir Pavlov <vovavc@gmail.com>",
-  "version": "0.1.6",
   "keywords": [
     "React",
     "Card",
@@ -19,84 +19,36 @@
     "type": "git",
     "url": "git+https://github.com/VoVaVc/react-card-payment.git"
   },
-  "homepage": "https://github.com/VoVaVc/react-card-payment/",
   "contributors": [
     {
       "name": "VoVaVc",
       "url": "https://github.com/VoVaVc"
     }
   ],
+  "license": {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  },
   "scripts": {
-    "start": "catalog start docs",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
-    "test:lint": "eslint . --ignore-path .gitignore",
-    "gh-pages": "catalog build docs",
-    "gh-pages:deploy": "gh-pages -d docs/build",
-    "dist:es6": "del-cli ./dist-es6 && cross-env BABEL_ENV=es6 babel ./src --out-dir ./dist-es6",
-    "dist:modules": "del-cli ./dist-modules && cross-env BABEL_ENV=modules babel ./src --out-dir ./dist-modules",
-    "preversion": "npm run test",
-    "prepublishOnly": "npm run dist:es6 && npm run dist:modules",
-    "postpublish": "npm run gh-pages && npm run gh-pages:deploy",
-    "postinstall": "node lib/post_install.js"
+    "autoformat": "prettier --trailing-comma es5 --write './src/**/*.{js,jsx}'",
+    "build": "babel ./src/ --out-dir ./dist && uglifycss ./src/index.css --output ./dist/index.css"
   },
-  "main": "dist-modules",
-  "module": "dist-es6",
-  "jsnext:main": "dist-es6",
+  "main": "dist/index.js",
+  "dependencies": {
+    "card-info": "latest",
+    "card-validator": "latest",
+    "react": "^15.6.1"
+  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "babel-jest": "^22.4.1",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
-    "babel-preset-env": "^1.6.1",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-inline-import-data-uri": "^1.0.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "latest",
     "babel-preset-react": "^6.24.1",
-    "catalog": "^3.5.5",
-    "chai": "^4.1.2",
-    "cross-env": "^5.1.3",
-    "del-cli": "^1.1.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.18.2",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "gh-pages": "^1.1.0",
-    "git-prepush-hook": "^1.0.2",
-    "jest": "^22.4.2",
-    "purecss": "^1.0.0",
-    "react": "^16.2.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-dom": "^16.2.0",
-    "react-github-corner": "^2.1.0",
-    "rimraf": "^2.6.2",
-    "sync-exec": "^0.6.2",
-    "webpack": "^3.10.0"
-  },
-  "peerDependencies": {
-    "react": ">= 0.11.2 < 16.0.2"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "packages"
-    ]
-  },
-  "keywords": [
-    "react",
-    "reactjs",
-    "boilerplate"
-  ],
-  "license": "MIT",
-  "pre-push": [
-    "test"
-  ]
+    "prettier": "^1.5.3",
+    "uglifycss": "0.0.29"
+  }
 }
